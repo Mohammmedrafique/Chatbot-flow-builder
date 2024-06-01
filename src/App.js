@@ -6,7 +6,6 @@ import ReactFlow, {
   useEdgesState,
   Controls,
   MiniMap,
-  removeElements,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import Sidebar from "./Components/Sidebar";
@@ -137,20 +136,6 @@ const App = () => {
     }
   }
 
-  // Function to delete the selected node
-  const deleteNode = () => {
-    if (changeNode) {
-      const newNodes = nodes.filter((node) => node.id !== changeNode.id);
-      const newEdges = edges.filter(
-        (edge) => edge.source !== changeNode.id && edge.target !== changeNode.id
-      );
-      setNodes(newNodes);
-      setEdges(newEdges);
-      setNodeSelected(false);
-      setChangeNode(null);
-    }
-  };
-
   return (
     <div className="appflow" style={{ width: "100vw", height: "100vh" }}>
       <ReactFlowProvider>
@@ -182,7 +167,6 @@ const App = () => {
         {nodeSelected ? (
           <div className="rightbar">
             <Topbar saveFlow={saveFlow} />
-            <button onClick={deleteNode}>Delete Node</button>
             <UpdateNode
               selectedNode={changeNode}
               setNodeSelected={setNodeSelected}
