@@ -4,7 +4,7 @@ This project is a React-based chatbot flow builder that utilizes the React Flow 
 
 ## Table of Contents
 
-- [Demo](#demo)
+- [Demo](https://chatbot-flow-builder-seven-eta.vercel.app/)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -31,7 +31,7 @@ To get started with the project, follow these steps:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/react-chatbot-flow-builder.git
+    git clone https://github.com/Mohammmedrafique/Chatbot-flow-builder.git
     cd react-chatbot-flow-builder
     ```
 
