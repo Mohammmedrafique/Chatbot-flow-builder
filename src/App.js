@@ -14,6 +14,7 @@ import Notification from "./Components/Notification";
 import newNode from "./Components/newNode";
 import "./index.css";
 import Topbar from "./Components/Topbar";
+import DownloadButton from "./Components/DownloadButton";
 
 let id = 0; // ID counter for new nodes
 
@@ -135,6 +136,8 @@ const App = () => {
     }
   }
 
+  
+
   return (
     <div className="appflow" style={{ width: "100vw", height: "100vh" }}>
       <ReactFlowProvider>
@@ -179,6 +182,7 @@ const App = () => {
           </div>
         )}
         <MiniMap nodeColor={nodeColor} />
+        <DownloadButton/>
       </ReactFlowProvider>
     </div>
   );
