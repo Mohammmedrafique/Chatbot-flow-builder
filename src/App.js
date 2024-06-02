@@ -28,6 +28,7 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState(null); // State for custom error message notification
   const [messageColor, setMessageColor] = useState(null); // State for custom color for error & success notification
   const [targetHandles, setTargetHandles] = useState([]); // State to track target handles when new edges are created between nodes
+  const firstNodeId = useRef(null); // Track the first node's ID
 
   // Function to handle node selection
   const update = useCallback((event, node) => {
@@ -35,25 +36,41 @@ const App = () => {
     setNodeSelected(true);
   }, []);
 
-  // Variables to track source and target handles
-  let sourceHandles = [];
-  let targetHandle = [];
-
   // Function to handle new connections (edges) between nodes
   const onConnect = useCallback(
     (params) => {
-      if (sourceHandles.includes(params.source)) return;
-      sourceHandles = sourceHandles.concat(params.source);
-
-      setEdges(
-        (eds) => addEdge({ ...params, markerEnd: { type: "arrowclosed" } }, eds) // Add arrowhead to the edge
+      // Check if there is already an edge from the same source handle
+      const existingEdge = edges.find(
+        (edge) =>
+          edge.source === params.source &&
+          edge.sourceHandle === params.sourceHandle
       );
 
-      if (targetHandle.includes(params.target)) return;
-      targetHandle = targetHandle.concat(params.target);
-      setTargetHandles(targetHandle);
+      if (existingEdge) return; // Prevent multiple connections from the same source handle
+
+      // Get source and target node indices
+      const sourceNodeIndex = nodes.findIndex(
+        (node) => node.id === params.source
+      );
+      const targetNodeIndex = nodes.findIndex(
+        (node) => node.id === params.target
+      );
+
+      // Ensure the target node is exactly the next node in sequence
+      if (targetNodeIndex !== sourceNodeIndex + 1) {
+        // setErrorMessage("Nodes must connect in sequence.");
+        setMessageColor("redMessage");
+        setTimeout(() => setErrorMessage(null), 5000);
+        return;
+      }
+
+      setEdges((eds) =>
+        addEdge({ ...params, markerEnd: { type: "arrowclosed" } }, eds)
+      );
+
+      setTargetHandles((prev) => [...prev, params.target]);
     },
-    [setEdges]
+    [edges, nodes, setEdges]
   );
 
   // Function to handle drag over event
@@ -81,21 +98,26 @@ const App = () => {
       });
 
       // Creating a new node
-      const newerNode = {
+      const newNode = {
         id: `node_${id}`,
         type: "node",
         position,
         data: { heading: "Send Message", label: `text message ${id}` },
       };
 
+      // Set the first node's ID if it's the first node
+      if (id === 0) {
+        firstNodeId.current = newNode.id;
+      }
+
       id++;
-      setNodes((nds) => nds.concat(newerNode));
+      setNodes((nds) => nds.concat(newNode));
     },
     [reactFlowInstance, setNodes]
   );
 
   // Hide the React Flow attribution for personal/hobby projects
-  let proOptions = { hideAttribution: true };
+  const proOptions = { hideAttribution: true };
 
   // Custom node types with header and label
   const nodeTypes = useMemo(

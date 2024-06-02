@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 // import { useReactFlow } from 'reactflow';
+import { GoArrowLeft } from "react-icons/go";
 
 // Component to update the selected node
 const UpdateNode = ({
@@ -46,10 +47,10 @@ const UpdateNode = ({
         <div className="back">
           <span
             className="material-symbols-outlined"
-            style={{ marginRight: 10, cursor: "pointer" }}
+            style={{ marginRight: 10, cursor: "pointer",color:"#62646b" }}
             onClick={mainSidebar}
           >
-            arrow_back
+           <GoArrowLeft/>
           </span>
           <h2 style={{ paddingLeft: 50, margin: 0 ,color:"#62646b"}}>Message</h2>
         </div>
