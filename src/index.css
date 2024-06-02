@@ -7,11 +7,9 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  /* font-synthesis: none; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* -webkit-text-size-adjust: 100%; */
 }
 
 body {
@@ -25,8 +23,8 @@ body {
 /* custom button styling */
 button {
   border-radius: 8px;
-  border: 1px solid #ff0000;;
-  color: #ff0000;
+  border: 1px solid #9ea9e4;
+  color: #9ea9e4;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 700;
@@ -59,8 +57,9 @@ button:focus-visible {
 .appflow .rightbar {
   display: flex;
   flex-direction: column;
-  background-color: #e9d7d7;
+  background-color: #ffffff;
   width: 30%;
+  border-left: 1px solid rgb(214, 212, 212);
 }
 
 /* style for the topbar with save changes button */
@@ -68,22 +67,22 @@ button:focus-visible {
   font-size: 12px;
   background: #fcfcfc;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #ffffff;
+  background-color: #f3f3f3;
   padding: 15px 10px;
   display: flex;
   justify-content: center;
-  border-bottom: 2px solid grey;
+  /* border-bottom: 2px solid grey; */
+  border: none;
 }
 
 /* topbar bar housing save changes button  */
 .topbar {
   font-size: 12px;
-  background-color: #ffffff;
+  background-color: #f3f3f3;
   padding: 12px;
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 /* style for updating the node */
@@ -92,8 +91,8 @@ button:focus-visible {
   font-size: 12px;
   background: #fcfcfc;
   color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #eddcdc;
+  color: lightgrey;
+  background-color: white;
   display: flex;
   flex-direction: column;
 }
@@ -137,7 +136,7 @@ button:focus-visible {
   background: #fcfcfc;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #e9d7d7;;
+  background-color: #ffffff;
   display: flex;
 }
 
@@ -153,9 +152,9 @@ button:focus-visible {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #fff8f8;
-  border: 1px solid #ff0000;
-  color: #ff0000;
+  background-color: white;
+  border: 1px solid #9ea9e4;
+  color: #9ea9e4;
   cursor: grab;
   transition: border-color 0.25s;
   display: flex;

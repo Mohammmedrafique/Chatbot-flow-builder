@@ -141,7 +141,6 @@ const App = () => {
       <ReactFlowProvider>
         <div className="reactflow-wrapper" ref={reactFlowWrapper}>
           <div className="topbar">
-            <h3 style={{ margin: "0px" }}>Welcome to Chatbot flow builder</h3>
             <Notification
               errorMessage={errorMessage}
               messageColor={messageColor}
