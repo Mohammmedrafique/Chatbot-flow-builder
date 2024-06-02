@@ -51,13 +51,13 @@ const UpdateNode = ({
           >
             arrow_back
           </span>
-          <h2 style={{ paddingLeft: 50, margin: 0 }}>Message</h2>
+          <h2 style={{ paddingLeft: 50, margin: 0 ,color:"#62646b"}}>Message</h2>
         </div>
       </div>
-      <div style={{ width: `100%`, height: 2, background: "grey" }}></div>
+      <div style={{ width: `100%`, height: 2, background: "rgb(214, 212, 212)" }}></div>
 
       <div className="update">
-        <h3>Text:</h3>
+        <h3>Text</h3>
         <textarea
           rows="4"
           cols="25"
@@ -69,7 +69,7 @@ const UpdateNode = ({
           style={{ marginBottom: 15, borderRadius: 5 }}
         />
       </div>
-      <div style={{ width: `100%`, height: 2, background: "grey" }}></div>
+      <div style={{ width: `100%`, height: 2, background: "rgb(214, 212, 212)" }}></div>
     </>
   );
 };

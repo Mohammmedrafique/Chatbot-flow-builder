@@ -1,5 +1,5 @@
 import { Handle, Position } from "reactflow";
-
+import { BsChatText } from "react-icons/bs";
 // Define a Node component that takes a data prop
 const Node = ({ data }) => {
   return (
@@ -19,16 +19,14 @@ const Node = ({ data }) => {
           alignItems: "center",
           justifyContent: "space-between",
           width: 275,
+          boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         }}
       >
         {/* Container for icon and heading */}
         <div style={{ display: "flex", alignItems: "center" }}>
-          <span
-            className="material-symbols-outlined"
+          <BsChatText
             style={{ fontSize: 13, paddingRight: 7, paddingTop: 5 }}
-          >
-            chat
-          </span>
+          />
           {data.heading} {/* Display heading from data prop */}
         </div>
         <div style={{ paddingRight: 15 }}>
@@ -43,6 +41,7 @@ const Node = ({ data }) => {
           borderBottomLeftRadius: 5,
           borderBottomRightRadius: 5,
           backgroundColor: "white",
+          boxShadow: "rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px",
         }}
       >
         <div
